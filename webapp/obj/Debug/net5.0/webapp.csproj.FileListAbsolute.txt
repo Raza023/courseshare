@@ -1,0 +1,206 @@
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\appsettings.json
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\webapp.exe
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\webapp.deps.json
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\webapp.runtimeconfig.json
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\webapp.runtimeconfig.dev.json
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\webapp.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\ref\webapp.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\webapp.pdb
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\webapp.Views.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\webapp.Views.pdb
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\webapp.csprojAssemblyReference.cache
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\webapp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\webapp.AssemblyInfoInputs.cache
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\webapp.AssemblyInfo.cs
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\webapp.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\webapp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\webapp.RazorAssemblyInfo.cache
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\webapp.RazorAssemblyInfo.cs
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\staticwebassets\webapp.StaticWebAssets.Manifest.cache
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\staticwebassets\webapp.StaticWebAssets.xml
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\scopedcss\bundle\webapp.styles.css
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\webapp.TagHelpers.input.cache
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\webapp.TagHelpers.output.cache
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\webapp.RazorCoreGenerate.cache
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\webapp.RazorTargetAssemblyInfo.cache
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\webapp.RazorTargetAssemblyInfo.cs
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\webapp.Views.pdb
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\webapp.dll
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\ref\webapp.dll
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\webapp.pdb
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\webapp.genruntimeconfig.cache
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\webapp.csproj.CopyComplete
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\Azure.Core.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\Azure.Identity.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\System.Runtime.Caching.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\DELL\Desktop\webapp\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\Razor\Views\Home\Categories.cshtml.g.cs
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\Razor\Views\Home\contactus.cshtml.g.cs
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\Razor\Views\Home\Courses.cshtml.g.cs
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\Razor\Views\Home\login.cshtml.g.cs
+C:\Users\DELL\Desktop\webapp\obj\Debug\net5.0\Razor\Views\Home\signup.cshtml.g.cs
+D:\working\webapp\bin\Debug\net5.0\appsettings.Development.json
+D:\working\webapp\bin\Debug\net5.0\appsettings.json
+D:\working\webapp\bin\Debug\net5.0\webapp.exe
+D:\working\webapp\bin\Debug\net5.0\webapp.deps.json
+D:\working\webapp\bin\Debug\net5.0\webapp.runtimeconfig.json
+D:\working\webapp\bin\Debug\net5.0\webapp.runtimeconfig.dev.json
+D:\working\webapp\bin\Debug\net5.0\webapp.dll
+D:\working\webapp\bin\Debug\net5.0\ref\webapp.dll
+D:\working\webapp\bin\Debug\net5.0\webapp.pdb
+D:\working\webapp\bin\Debug\net5.0\webapp.Views.dll
+D:\working\webapp\bin\Debug\net5.0\webapp.Views.pdb
+D:\working\webapp\bin\Debug\net5.0\Azure.Core.dll
+D:\working\webapp\bin\Debug\net5.0\Azure.Identity.dll
+D:\working\webapp\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\working\webapp\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+D:\working\webapp\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+D:\working\webapp\bin\Debug\net5.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\working\webapp\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\working\webapp\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+D:\working\webapp\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+D:\working\webapp\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\working\webapp\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+D:\working\webapp\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+D:\working\webapp\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+D:\working\webapp\bin\Debug\net5.0\System.Runtime.Caching.dll
+D:\working\webapp\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+D:\working\webapp\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\working\webapp\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\working\webapp\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\working\webapp\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\working\webapp\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\working\webapp\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\working\webapp\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\working\webapp\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\working\webapp\obj\Debug\net5.0\webapp.csprojAssemblyReference.cache
+D:\working\webapp\obj\Debug\net5.0\webapp.GeneratedMSBuildEditorConfig.editorconfig
+D:\working\webapp\obj\Debug\net5.0\webapp.AssemblyInfoInputs.cache
+D:\working\webapp\obj\Debug\net5.0\webapp.AssemblyInfo.cs
+D:\working\webapp\obj\Debug\net5.0\webapp.csproj.CoreCompileInputs.cache
+D:\working\webapp\obj\Debug\net5.0\webapp.MvcApplicationPartsAssemblyInfo.cache
+D:\working\webapp\obj\Debug\net5.0\webapp.RazorAssemblyInfo.cache
+D:\working\webapp\obj\Debug\net5.0\webapp.RazorAssemblyInfo.cs
+D:\working\webapp\obj\Debug\net5.0\staticwebassets\webapp.StaticWebAssets.Manifest.cache
+D:\working\webapp\obj\Debug\net5.0\staticwebassets\webapp.StaticWebAssets.xml
+D:\working\webapp\obj\Debug\net5.0\scopedcss\bundle\webapp.styles.css
+D:\working\webapp\obj\Debug\net5.0\webapp.TagHelpers.input.cache
+D:\working\webapp\obj\Debug\net5.0\webapp.TagHelpers.output.cache
+D:\working\webapp\obj\Debug\net5.0\webapp.RazorCoreGenerate.cache
+D:\working\webapp\obj\Debug\net5.0\Razor\Views\Home\Categories.cshtml.g.cs
+D:\working\webapp\obj\Debug\net5.0\Razor\Views\Home\contactus.cshtml.g.cs
+D:\working\webapp\obj\Debug\net5.0\Razor\Views\Home\Courses.cshtml.g.cs
+D:\working\webapp\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+D:\working\webapp\obj\Debug\net5.0\Razor\Views\Home\login.cshtml.g.cs
+D:\working\webapp\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\working\webapp\obj\Debug\net5.0\Razor\Views\Home\signup.cshtml.g.cs
+D:\working\webapp\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
+D:\working\webapp\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\working\webapp\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\working\webapp\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+D:\working\webapp\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+D:\working\webapp\obj\Debug\net5.0\webapp.RazorTargetAssemblyInfo.cache
+D:\working\webapp\obj\Debug\net5.0\webapp.RazorTargetAssemblyInfo.cs
+D:\working\webapp\obj\Debug\net5.0\webapp.Views.pdb
+D:\working\webapp\obj\Debug\net5.0\webapp.csproj.CopyComplete
+D:\working\webapp\obj\Debug\net5.0\webapp.dll
+D:\working\webapp\obj\Debug\net5.0\ref\webapp.dll
+D:\working\webapp\obj\Debug\net5.0\webapp.pdb
+D:\working\webapp\obj\Debug\net5.0\webapp.genruntimeconfig.cache
+D:\working\Course Share\webapp\bin\Debug\net5.0\appsettings.Development.json
+D:\working\Course Share\webapp\bin\Debug\net5.0\appsettings.json
+D:\working\Course Share\webapp\bin\Debug\net5.0\webapp.exe
+D:\working\Course Share\webapp\bin\Debug\net5.0\webapp.deps.json
+D:\working\Course Share\webapp\bin\Debug\net5.0\webapp.runtimeconfig.json
+D:\working\Course Share\webapp\bin\Debug\net5.0\webapp.runtimeconfig.dev.json
+D:\working\Course Share\webapp\bin\Debug\net5.0\webapp.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\ref\webapp.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\webapp.pdb
+D:\working\Course Share\webapp\bin\Debug\net5.0\webapp.Views.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\webapp.Views.pdb
+D:\working\Course Share\webapp\bin\Debug\net5.0\Azure.Core.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\Azure.Identity.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\System.Runtime.Caching.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\working\Course Share\webapp\obj\Debug\net5.0\webapp.csprojAssemblyReference.cache
+D:\working\Course Share\webapp\obj\Debug\net5.0\webapp.GeneratedMSBuildEditorConfig.editorconfig
+D:\working\Course Share\webapp\obj\Debug\net5.0\webapp.AssemblyInfoInputs.cache
+D:\working\Course Share\webapp\obj\Debug\net5.0\webapp.AssemblyInfo.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\webapp.csproj.CoreCompileInputs.cache
+D:\working\Course Share\webapp\obj\Debug\net5.0\webapp.MvcApplicationPartsAssemblyInfo.cache
+D:\working\Course Share\webapp\obj\Debug\net5.0\webapp.RazorAssemblyInfo.cache
+D:\working\Course Share\webapp\obj\Debug\net5.0\webapp.RazorAssemblyInfo.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\staticwebassets\webapp.StaticWebAssets.Manifest.cache
+D:\working\Course Share\webapp\obj\Debug\net5.0\staticwebassets\webapp.StaticWebAssets.xml
+D:\working\Course Share\webapp\obj\Debug\net5.0\scopedcss\bundle\webapp.styles.css
+D:\working\Course Share\webapp\obj\Debug\net5.0\webapp.TagHelpers.input.cache
+D:\working\Course Share\webapp\obj\Debug\net5.0\webapp.TagHelpers.output.cache
+D:\working\Course Share\webapp\obj\Debug\net5.0\webapp.RazorCoreGenerate.cache
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\webapp.RazorTargetAssemblyInfo.cache
+D:\working\Course Share\webapp\obj\Debug\net5.0\webapp.RazorTargetAssemblyInfo.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\webapp.Views.pdb
+D:\working\Course Share\webapp\obj\Debug\net5.0\webapp.csproj.CopyComplete
+D:\working\Course Share\webapp\obj\Debug\net5.0\webapp.dll
+D:\working\Course Share\webapp\obj\Debug\net5.0\ref\webapp.dll
+D:\working\Course Share\webapp\obj\Debug\net5.0\webapp.pdb
+D:\working\Course Share\webapp\obj\Debug\net5.0\webapp.genruntimeconfig.cache
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Course\Categories.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Course\contactus.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Course\Courses.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Signup\login.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Signup\signup.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Shared\Components\CategorySummary\Default.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Shared\Components\ProductsSummary\Default.cshtml.g.cs

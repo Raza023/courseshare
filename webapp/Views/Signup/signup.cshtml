@@ -1,0 +1,82 @@
+@using webapp.Models;
+@model Users;
+
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Sign up";
+}
+
+<div class="container">
+    <main role="main" class="pb-3">
+
+        <h1>@ViewData["Title"]</h1>
+
+        @if (ViewBag.x != null)
+        {
+            @if (ViewBag.x == true)
+            {
+                <div class="alert alert-success  text-center">
+                    <strong>@ViewBag.data</strong>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-danger text-center">
+                    <strong>@ViewBag.data</strong>
+                </div>
+            }
+        }
+
+        <div id="login">
+            <div class="container">
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-6">
+                        <div id="login-box" class="col-md-12">
+                            <form id="login-form" class="form" action="/Signup/signup" method="post">
+                                <h3 class="text-center text-info">Sign up</h3>
+
+                                <div class="form-group">
+                                    <label asp-for="Name" class="text-info"></label><br>
+                                    <input asp-for="Name" id="username" class="form-control">
+                                    <span asp-validation-for="Name"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Username" class="text-info"></label><br>
+                                    <input asp-for="Username" class="form-control">
+                                    <span asp-validation-for="Username"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Email" class="text-info"></label><br>
+                                    <input asp-for="Email" class="form-control">
+                                    <span asp-validation-for="Email"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Password" class="text-info"></label><br>
+                                    <input asp-for="Password" class="form-control">
+                                    <span asp-validation-for="Password"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="ConfirmPassword" class="text-info"></label><br>
+                                    <input asp-for="ConfirmPassword" id="password" class="form-control">
+                                    <span asp-validation-for="ConfirmPassword"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="submit" name="submit" class="btn btn-info btn-md" value="Sign up">
+                                </div>
+                                <div id="register-link" class="text-right">
+                                    Already have an account?
+                                    <a asp-controller="Signup" asp-action="login" class="text-info">Login here</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+</div>
