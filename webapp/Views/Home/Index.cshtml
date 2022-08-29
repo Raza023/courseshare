@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<webapp.Models.Category>
+
+@{
     Layout = "../Shared/_Layout.cshtml";
 }
 
@@ -6,6 +8,22 @@
     ViewData["Title"] = "Home Page";
 }
 
+@if (ViewBag.x != null)
+{
+    <div class="alert alert-success  text-center">
+        <strong>@ViewBag.x</strong>
+    </div>
+}
+
+@if (ViewBag.lgout != null)
+{
+    @if (ViewBag.lgout == true)
+    {
+        <div class="alert alert-danger  text-center">
+            <strong>@ViewBag.data</strong>
+        </div>
+    }
+}
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -44,36 +62,17 @@
 
 <div class="container">
     <main role="main" class="pb-3">
-
-        @if (ViewBag.x != null)
-        {
-            <div class="alert alert-success  text-center">
-                <strong>@ViewBag.x</strong>
-            </div>
-        }
-
-        @if (ViewBag.lgout != null)
-        {
-            @if (ViewBag.lgout == true)
-            {
-                <div class="alert alert-danger  text-center">
-                    <strong>@ViewBag.data</strong>
-                </div>
-            }
-        }
-        
+    
         <div class="text-center">
             <h1 class="display-4"><strong>Welcome to Course Share</strong></h1>
             <h1 class="display-4">Course Categories</h1>
         </div>
 
         <div class="row">
-            <vc:category-summary name="Development" description="Mobile development, Game development, Programming Languages, Database design and much more..." filename="development.jpg"></vc:category-summary>
-            <vc:category-summary name="Photography & Video" description="Digital photography, Portrait photograhy, Commercial photograhy, Video Design and much more..." filename="s1.jpg"></vc:category-summary>
-            <vc:category-summary name="Teaching & Academic" description="Engineering, Humanities, Math, Science, Online Education, Language learning and much more..." filename="s2.jpeg"></vc:category-summary>
-            <vc:category-summary name="Development" description="Mobile development, Game development, Programming Languages, Database design and much more..." filename="s3.jpg"></vc:category-summary>
-            <vc:category-summary name="Photography & Video" description="Digital photography, Portrait photograhy, Commercial photograhy, Video Design and much more..." filename="s4.jpg"></vc:category-summary>
-            <vc:category-summary name="Teaching & Academic" description="Engineering, Humanities, Math, Science, Online Education, Language learning and much more..." filename="s5.png"></vc:category-summary>
+            @foreach (var item in Model)
+            {
+                <vc:category-summary name="@item.categoryName" description="@item.categoryDescription" filename="@item.categoryPicture" catpath = "@item.categoryPath"></vc:category-summary>
+            }
         </div>
 
     </main>

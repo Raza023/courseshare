@@ -1,3 +1,5 @@
+@model List<webapp.Models.Category>
+
 @{
     Layout = "../Shared/_Layout.cshtml";
 }
@@ -11,9 +13,15 @@
 <div class="container">
     <main role="main" class="pb-3">
 
-        <h1>@ViewData["Title"]</h1>
-        <p>Course Page</p>
-        <p>@Model</p>
+        <h1 class="text-center text-primary">@ViewData["Title"]</h1>
+        <br/>
+
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <vc:category-summary name="@item.categoryName" description="@item.categoryDescription" filename="@item.categoryPicture" catpath = "@item.categoryPath"></vc:category-summary>
+            }
+        </div>
         
     </main>
 </div>

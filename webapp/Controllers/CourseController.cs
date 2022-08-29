@@ -13,15 +13,12 @@ namespace webapp.Controllers
     {
         public IActionResult Courses()
         {
-            string myData= "This is courses string.";
-            return View("Courses",myData);
+            List<Category> li = new List<Category>();
+            Category c = new Category();
+            li = c.getCategoriesList();
+            return View("Courses",li);
         }
         public IActionResult Categories()
-        {
-            return View();
-        }
-
-        public IActionResult contactus()
         {
             return View();
         }
