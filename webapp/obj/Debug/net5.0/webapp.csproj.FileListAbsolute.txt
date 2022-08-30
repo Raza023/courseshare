@@ -214,3 +214,4 @@ D:\working\Course Share\webapp\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Sq
 D:\working\Course Share\webapp\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
 D:\working\Course Share\webapp\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
 D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Home\contactus.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Course\Development.cshtml.g.cs

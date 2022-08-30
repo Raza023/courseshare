@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using webapp.Models.Interfaces;
+using webapp.Models.Repositories;
 
 namespace webapp
 {
@@ -24,6 +26,9 @@ namespace webapp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSingleton<IUsers, UsersRepository>();                //add this line.
+            services.AddSingleton<ICategory, CategoryRepository>();          //add this line.
+            services.AddSingleton<ICourse, CourseRepository>();              //add this line.
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

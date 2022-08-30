@@ -8,7 +8,7 @@
     ViewData["Title"] = "Courses";
 }
 
-        
+
 
 <div class="container">
     <main role="main" class="pb-3">
@@ -16,12 +16,88 @@
         <h1 class="text-center text-primary">@ViewData["Title"]</h1>
         <br/>
 
-        <div class="row">
+        <form id="myform">
+            <label>Search Category</label>
+            <br/>
+            <input  class="form-control mr-sm-2" id="val" type="Text" name="category"></input>
+            <br/>
+            <input class="btn btn-primary" type="submit" value="Search"></input>
+        </form>
+
+        <br/>
+
+        <div class="row" id="content">
             @foreach (var item in Model)
             {
                 <vc:category-summary name="@item.categoryName" description="@item.categoryDescription" filename="@item.categoryPicture" catpath = "@item.categoryPath"></vc:category-summary>
             }
         </div>
+        <div id="result"></div>
         
     </main>
 </div>
+
+@section AjaxCall
+{
+    <script>
+        var text = "";
+        $(document).ready(function () {
+            $("#myform").submit(function (e) { 
+                e.preventDefault();
+
+                var data = $("#val").val();
+
+                if(data=="")
+                {
+                    var htmlString = '<div class="alert alert-danger  text-center"><strong>Please enter a value</strong></div>';
+                    $("#content").html(htmlString);
+                }
+                else
+                {
+                    $.ajax({
+                        type: "post",
+                        url: "/Course/Courses",
+                        data: {category: data},
+                        async: true,
+                        //processData: false,
+                        //cache: false,
+                        success: function (response) {
+                            console.log("success");
+                            console.log(response);
+                            if(response.length == 0)
+                            {
+                                $("#content").html('<div class="alert alert-danger  text-center"><strong>No result found.</strong></div>');
+                            }
+                            else
+                            {
+                                text="";
+                                $("#content").html(text);
+                                response.forEach(myFunction);
+                                console.log(text);
+                            }
+                        },
+                        error: function (response) {
+                            console.log("error");
+                            console.log(response);
+                        }
+                    });
+                }
+            });
+        });
+        function myFunction(item, index)
+        {
+            $.ajax({     //this ajax call is to call ViewComponents one by one.
+                type: "POST",
+                url: "/Course/GetMyViewComponent",
+                data: {name: item.categoryName, description: item.categoryDescription, filename: item.categoryPicture, catpath: item.categoryPath},
+                success: function (response) {
+                    $("#content").append(response);
+                },
+                error: function (response){
+                    console.log("error");
+                    console.log(response);
+                }
+            });    
+        }                
+    </script>
+}
