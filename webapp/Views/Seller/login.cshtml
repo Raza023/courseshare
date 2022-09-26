@@ -1,0 +1,54 @@
+@using webapp.Models;
+@model Seller;
+
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container">
+    <main role="main" class="pb-3">
+
+        @if (ViewBag.x != null)
+        {
+            <div class="alert alert-danger text-center">
+                <strong>@ViewBag.x</strong>
+            </div>
+        }
+
+        <div id="login">
+            <div class="container">
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-6">
+                        <div id="login-box" class="col-md-12">
+                            <form id="login-form" class="form" method="post" action="/Seller/login">
+                                <h3 class="text-center text-info">Login as a seller</h3>
+                                <div class="form-group">
+                                    <label asp-for="Username" class="text-info"></label><br>
+                                    <input asp-for="Username" class="form-control" required>
+                                    <span asp-validation-for="Username"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Password" class="text-info"></label><br>
+                                    <input asp-for="Password" class="form-control" required>
+                                    <span asp-validation-for="Password"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" name="submit" class="btn btn-info btn-md" value="Log in">
+                                </div>
+                            </form>
+                            <div id="register-link" class="text-right">
+                                Don't have any seller account?
+                                <a asp-controller="Seller" asp-action="signup" class="text-info">Register here</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+</div>

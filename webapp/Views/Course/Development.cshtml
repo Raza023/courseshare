@@ -1,13 +1,20 @@
+@model List<webapp.Models.Course>
 @{
     Layout = "../Shared/_Layout.cshtml";
 }
 
 @{
-    ViewData["Title"] = "Courses";
+    ViewData["Title"] = "Development";
 }
 
 <div class="container">
     <main role="main" class="pb-3">
-        
+        <center><h1 class="text-primary">Development</h1></center>
+        <div class="row" id="content">
+            @foreach (var item in Model)
+            {
+                <partial name="devPartialView" model="item"/>
+            }
+        </div>
     </main>
 </div>

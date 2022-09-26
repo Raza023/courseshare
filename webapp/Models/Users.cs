@@ -57,5 +57,7 @@ namespace webapp.Models
         [Display(Name = "Confirm Password")]
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
+
+        
     }
 }

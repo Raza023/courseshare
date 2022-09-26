@@ -14,11 +14,13 @@ namespace webapp.Controllers
     {
         private readonly ILogger<CourseController> _logger;
         private readonly ICategory categoryRepo;
+        private readonly ICourse courseRepo;
 
-        public CourseController(ILogger<CourseController> logger, IUsers iu, ICategory ic)
+        public CourseController(ILogger<CourseController> logger, IUsers iu, ICategory ic, ICourse icr)
         {
             _logger = logger;
             categoryRepo = ic;
+            courseRepo = icr;
         }
 
         [HttpGet]
@@ -51,7 +53,45 @@ namespace webapp.Controllers
 
         public IActionResult Development()
         {
+            List<Course> li = courseRepo.getDevCourses();
+            return View("Development",li);
+        }
+
+        public IActionResult PhotographyAndVideo()
+        {
             return View();
+        }
+
+        public IActionResult TeachingAndAcademic()
+        {
+            return View();
+        }
+
+        public IActionResult Design()
+        {
+            return View();
+        }
+
+        public IActionResult HealthAndFitness()
+        {
+            return View();
+        }
+
+        public IActionResult Business()
+        {
+            return View();
+        }
+
+        public IActionResult details(int id)     //must use id here.
+        {
+            List<Video> li = courseRepo.getCourseVideos(id);
+            return View("details",li);
+        }
+
+        public IActionResult videodetails(int id)     //must use id here.
+        {
+            Video v = courseRepo.getCourseVideo(id);
+            return View("videodetails",v);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

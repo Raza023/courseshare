@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using webapp.Models;
 using webapp.Models.Interfaces;
+using Microsoft.AspNetCore.Cors;
 
 
 
@@ -34,11 +35,13 @@ namespace webapp.Controllers
         }
 
         [HttpGet]
+        [EnableCors("APICorsPolicy")]
         public IActionResult contactus()
         {
             return View();
         }
         [HttpPost]
+        [EnableCors("APICorsPolicy")]
         public IActionResult contactus(string name, string email, string subject, string message)
         {
             //Users u = new Users();

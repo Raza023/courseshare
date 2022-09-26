@@ -29,6 +29,15 @@ namespace webapp
             services.AddSingleton<IUsers, UsersRepository>();                //add this line.
             services.AddSingleton<ICategory, CategoryRepository>();          //add this line.
             services.AddSingleton<ICourse, CourseRepository>();              //add this line.
+            services.AddSingleton<ISeller, SellerRepository>();              //add this line.
+            //services.AddCors(options => options.AddDefaultPolicy(builder => builder.AllowAnyOrigin()));
+            services.AddCors(options => 
+            {
+                options.AddPolicy("APICorsPolicy",builder => 
+                {
+                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +57,8 @@ namespace webapp
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 

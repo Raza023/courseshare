@@ -49,24 +49,60 @@ namespace webapp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("SellerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("category")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("courseDescription")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("courseName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("coursePath")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("courseThumbnail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("videos")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
+                    b.HasIndex("SellerId");
+
                     b.ToTable("Courses");
+                });
+
+            modelBuilder.Entity("webapp.Models.Seller", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ConfirmPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Sellers");
                 });
 
             modelBuilder.Entity("webapp.Models.Users", b =>
@@ -101,6 +137,61 @@ namespace webapp.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("webapp.Models.Video", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("videoName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("videoTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("CourseId");
+
+                    b.ToTable("Videos");
+                });
+
+            modelBuilder.Entity("webapp.Models.Course", b =>
+                {
+                    b.HasOne("webapp.Models.Seller", "Seller")
+                        .WithMany("Courses")
+                        .HasForeignKey("SellerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Seller");
+                });
+
+            modelBuilder.Entity("webapp.Models.Video", b =>
+                {
+                    b.HasOne("webapp.Models.Course", "Course")
+                        .WithMany("Videos")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+                });
+
+            modelBuilder.Entity("webapp.Models.Course", b =>
+                {
+                    b.Navigation("Videos");
+                });
+
+            modelBuilder.Entity("webapp.Models.Seller", b =>
+                {
+                    b.Navigation("Courses");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,6 +1,9 @@
 using System;
-using System.Net;
-using System.Net.Mail;
+using MailKit.Net.Smtp;
+using MailKit.Security;
+using MimeKit;
+using MimeKit.Text;
+using System.Net.Mime;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -145,22 +148,36 @@ namespace webapp.Models.Repositories
             string status = "";
             try
             {
+                //add two packages first:
+                // dotnet add package MimeKit --version 3.4.0
+                // dotnet add package MailKit --version 3.3.0
+
+                // visit following website to get your SMTP credentials: 
+                // https://ethereal.email/
+
                 string from="imhraza023@gmail.com";
-                string password = "vkhmbryvwbzmrfko";//watch this to get your app password  https://youtu.be/J4CtP1MBtOE
-                string sub = subject+" - CourseShare";
+                string to = "imhraza023@gmail.com";
+                string password = "ikcbxbsemqoupcvk"; //watch this to get your app password  https://youtu.be/J4CtP1MBtOE
+                string sub = subject+" - Course Share";
                 string title="CourseShare";       //title of prjoect.
 
-                MailMessage mail = new MailMessage();
-                mail.From = new MailAddress(from);
-                mail.To.Add("imhraza023@gmail.com");
-                mail.Subject = sub;
-                mail.Body = "<center><h1>"+title+"</h1></center><h3>From: "+name+" - "+email+"</h3><h3>Message:<h3/><p>"+message+"</p>";
-                mail.IsBodyHtml = true;
+                // create email message
+                var emailClient = new MimeMessage();
+                emailClient.From.Add(MailboxAddress.Parse(from));
+                emailClient.To.Add(MailboxAddress.Parse(to));
+                emailClient.Subject = sub;
+                emailClient.Body = new TextPart(MimeKit.Text.TextFormat.Html) { Text = "<center><h1>"+title+"</h1></center><h3>From: "+name+" - "+email+"</h3><h3>Message:<h3/><p>"+message+"</p>" };
 
-                SmtpClient smtp = new SmtpClient("smtp.gmail.com",587);
-                smtp.Credentials = new System.Net.NetworkCredential(from,password);
-                smtp.EnableSsl = true;
-                smtp.Send(mail);
+                // send email
+                using (var smtp = new SmtpClient())
+                {
+                    smtp.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
+                    smtp.Authenticate(from, password);
+                    smtp.Timeout = 100000;
+                    smtp.Send(emailClient);
+                    smtp.Disconnect(true);
+                }
+                
                 status = "Mail Sent";
             }
             catch(Exception ex)

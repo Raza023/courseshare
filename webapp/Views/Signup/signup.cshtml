@@ -9,10 +9,15 @@
     ViewData["Title"] = "Sign up";
 }
 
+
+
 <div class="container">
     <main role="main" class="pb-3">
 
-        <h1>@ViewData["Title"]</h1>
+    <center>
+        <h3 class="text-center text-info">Are you a seller? <a asp-controller="Seller" asp-action="signup">click here</a> to signup as a seller.</h3>
+        <h3 class="text-center text-info">OR</h3>
+    </center>
 
         @if (ViewBag.x != null)
         {
@@ -36,7 +41,7 @@
                     <div id="login-column" class="col-md-6">
                         <div id="login-box" class="col-md-12">
                             <form id="login-form" class="form" action="/Signup/signup" method="post">
-                                <h3 class="text-center text-info">Sign up</h3>
+                                <h3 class="text-center text-info">Sign up as a user</h3>
 
                                 <div class="form-group">
                                     <label asp-for="Name" class="text-info"></label><br>

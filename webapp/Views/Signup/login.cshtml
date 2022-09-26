@@ -9,15 +9,13 @@
     ViewData["Title"] = "Login";
 }
 
-        
-
-        
-
-
 <div class="container">
     <main role="main" class="pb-3">
 
-        <h1>@ViewData["Title"]</h1>
+    <center>
+        <h3 class="text-center text-info">Are you a seller? <a asp-controller="Seller" asp-action="login">click here</a> to login as a seller.</h3>
+        <h3 class="text-center text-info">OR</h3>
+    </center>
 
         @if (ViewBag.x != null)
         {

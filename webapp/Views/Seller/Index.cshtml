@@ -1,0 +1,34 @@
+@model List<webapp.Models.Course>
+
+@{
+    Layout = "../Shared/_Layout2.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Seller portal";
+}
+
+<div class="container">
+    <main role="main" class="pb-3">
+        <br>
+        <h1 class="text-center text-info">Course share seller panel</h1>
+        <br>
+
+        <div class="card" id="catcard" style="width: 100%;">
+            <div class="card-body">
+                <h5 class="card-title">Welcome to course share</h5>
+                <p class="card-text">Here you can add your courses. So what you waiting for lets get straight in to it.</p>
+                <a asp-controller="Seller" asp-action="addcourse" class="btn btn-primary">Add course</a>
+            </div>
+        </div>
+        <div class="row" id="content">
+        @if(Model!=null)
+        {
+            @foreach (var item in Model)
+            {
+                <partial name="devPartialSellerView" model="item"/>
+            }
+        }
+        </div>
+    </main>
+</div>

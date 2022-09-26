@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="well well-sm">
-                    <form method="post" action="/Home/contactus">
+                    <form id="myform" method="post" action="/home/contactus">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -85,8 +85,6 @@
             </div>
         </div>
         
-        
-
         @if(Model != null)
         {
             @if(Model == "Your message has been sent.")
@@ -107,3 +105,28 @@
         
     </main>
 </div>
+
+
+@section AjaxCall{
+<script>
+$(document).ready(function () {
+    $("#ChangeFormNameHere").submit(function (e) { 
+        e.preventDefault();
+
+        $.ajax({
+            type: "POST",
+            url: "https://jscode.unaux.com/sendemail/index.php?callback=response",
+            data: {from: "semester1with2@gmail.com",to: "semester1with2@gmail.com",subject: $("#subject").val(),message: $("#message").val()},
+            dataType: "json",
+            success: function (response) {
+                console.log(response);
+            },
+            error: function (response) {
+                console.log(response);
+            }
+        });
+        $(this).trigger("reset");
+    });
+});
+</script>
+}
