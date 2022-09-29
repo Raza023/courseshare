@@ -141,5 +141,36 @@ namespace webapp.Models.Repositories
             return c.ID;
         }
 
+        public bool ApproveSeller(int id)
+        {
+            CourseContext db = new CourseContext();
+            Seller s = db.Sellers.First(p => p.ID == id);
+            s.IsActive = true;
+            int changedRows = db.SaveChanges();
+            if(changedRows>=1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool UnApproveSeller(int id)
+        {
+            CourseContext db = new CourseContext();
+            Seller s = db.Sellers.First(p => p.ID == id);
+            s.IsActive = false;
+            int changedRows = db.SaveChanges();
+            if(changedRows>=1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

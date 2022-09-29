@@ -1,0 +1,72 @@
+@model webapp.Models.Video
+
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Course Video";
+}
+
+<div class="container">
+    <main role="main" class="pb-3">
+        <center><h1 class="text-primary">Course Video</h1></center>
+        <div>
+            <h2>@Model.videoTitle</h2>
+            @*<video class="right" controls loop width="100%">
+                <source src="~/Uploads/Videos/@Url.Content(@Model.videoName)">
+                This browser does not support html5 video.
+            </video>*@
+
+            <div>
+            <script src="~/js/myplayer.js"></script>
+            <center>
+                <div>
+                <div id="showing" style=" width: 100%"></div>
+                    <style> .rmp-logo.rmp-logo{top: 10px;left:0px;width:50px;}</style>
+                </div>
+            </center>
+            <script>
+                (function () {
+                    var src = {
+                        mp4: "@Url.Content(@ViewBag.vpath)"
+                    };
+                    var streamrootConfig = {
+                        type: 'hlsjs',
+                        streamrootKey: 'eWZmZ2d2Y3BrdEAxNTMwNjA22',
+                        dnaConfig: {},
+                    };
+
+                    var settings = {
+                        licenseKey: 'eWZmZ2d2Y3BrdEAxNTMwNjA2',
+                        streamrootConfig: streamrootConfig,
+                        src: src,
+                        // Recommended settings for HLS streaming
+                        hlsJSMaxBufferSize: 0,
+                        hlsJSMaxBufferLength: 30,
+                        hlsJSLiveSyncDuration: 10, // Not needed for VoD streams
+                        forceHlsJSOnMacOSIpadOSSafari: true, //To activate Streamroot on Safari Mac OS. Only from player 5.4.10+.
+                        delayToFade: 1000,
+                        width: 640,
+                        height: 360,
+                        muted: false,
+                        skin: 's3',
+                        isLive: false,
+                        autoplay: false,
+                        poster: '/images/tn.png',
+                        preload: 'No',
+                        logo: '/images/logo2.png',
+                        logoLoc: '#',
+                        logoPosition: 'topleft',
+                        logoWatermark: true,
+                    };
+                    var elementID = 'showing';
+                    var rmp = new RadiantMP(elementID);
+                    rmp.init(settings);
+                })();
+            
+            </script>
+            </div>
+        </div>
+    </main>
+</div>

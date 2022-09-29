@@ -1,0 +1,38 @@
+@model List<webapp.Models.Course>
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Pending Courses";
+}
+
+<div class="container">
+    <main role="main" class="pb-3">
+        <center><h1 class="text-primary">Pending Courses</h1></center>
+        @if(ViewBag.appMessage!=null)
+        {
+            <div class="alert alert-success remMarginBottom text-center">
+                <strong>@ViewBag.appMessage</strong>
+            </div>
+        }
+        <div class="row" id="content">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4">
+                    <div class="card card-block" id="catcard">
+                        <img class="card-img-top"
+                            src="~/Uploads/Thumbnails/@Url.Content(@item.courseThumbnail)"
+                            alt="Card image cap">
+                        <div class="card-block p-3">
+                            <h4 class="card-title">@item.courseName</h4>
+                            <p class="card-text">@item.courseDescription</p>
+                            <a asp-controller="Course" asp-action="details" asp-route-id="@item.ID" class="btn btn-primary">Watch Course</a>
+                            <a asp-controller="Admin" asp-action="approvecourse" asp-route-id="@item.ID" class="btn btn-primary">Approve Course</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </main>
+</div>

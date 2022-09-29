@@ -10,11 +10,11 @@ using Microsoft.Data.SqlClient;
 
 namespace webapp.Models
 {
-    public class Seller
+    public class Seller: CourseAuditModel
     {
         // int? or float? to make nullable 
 
-        public int ID { get; set; }
+        // public int ID { get; set; }
 
         private string name;
         [Required(ErrorMessage = "Please Enter correct name")]

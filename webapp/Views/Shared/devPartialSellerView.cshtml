@@ -9,8 +9,15 @@
         <div class="card-block p-3">
             <h4 class="card-title">@Model.courseName</h4>
             <p class="card-text">@Model.courseDescription</p>
-            <a asp-controller="Course" asp-action="details" asp-route-id="@Model.ID" class="btn btn-primary">Watch Course</a>
+            <hr style="border: 1px dashed blue"/>
+            <a asp-controller="Course" asp-action="sellersidedetails" asp-route-id="@Model.ID" class="btn btn-success">Watch Course</a>
             <a asp-controller="Seller" asp-action="addvideo" asp-route-id="@Model.ID" class="btn btn-primary">Add Videos</a>
+            <br/>
+            <hr style="border: 1px dashed blue"/>
+            <a asp-controller="Seller" asp-action="deletecourse" asp-route-id="@Model.ID" class="btn btn-danger">Delete Course</a>
+            <a asp-controller="Seller" asp-action="updatecourse" asp-route-id="@Model.ID" class="btn btn-warning">Update Course</a>
+            <br/>
+            <hr style="border: 1px dashed blue"/>
         </div>
     </div>
 </div>

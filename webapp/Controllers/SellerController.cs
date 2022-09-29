@@ -1,3 +1,5 @@
+
+using System.Net;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -43,6 +45,176 @@ namespace webapp.Controllers
         {
             if(HttpContext.Request.Cookies.ContainsKey("susername") && HttpContext.Request.Cookies.ContainsKey("spassword"))  //checking if cookie exists.
             {
+                List<Course> li = courseRepo.getSellerCourses(sellerRepo.getSellerId(HttpContext.Request.Cookies["susername"]));
+                return View("Index",li);
+            }
+            else
+            {
+                ViewBag.lgout = true;
+                ViewBag.data = "You must have to login first as a seller.";
+                List<Category> li = new List<Category>();
+                //Category c = new Category();
+                li = categoryRepo.getCategoriesList();
+                return View("~/Views/Home/Index.cshtml",li);
+            }
+        }
+
+        public IActionResult deletecourse(int id)
+        {
+            if(HttpContext.Request.Cookies.ContainsKey("susername") && HttpContext.Request.Cookies.ContainsKey("spassword"))  //checking if cookie exists.
+            {
+                string wwwPath = this.Environment.WebRootPath;
+                // string contentPath = this.Environment.ContentRootPath;
+        
+                string path = Path.Combine(this.Environment.WebRootPath, "Uploads");
+                path = Path.Combine(path, "Thumbnails");
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                string fileName = courseRepo.getCourseThumbnailName(id);
+                if (System.IO.File.Exists(Path.Combine(path, fileName)))
+                {
+                    // If file found, delete it.
+                    System.IO.File.Delete(Path.Combine(path, fileName));
+                    // ViewBag.sMessage = "Your Course has been deleted.";
+                }
+                else
+                {
+                    ViewBag.Message = "Course not found";
+                }
+
+                string vpath = Path.Combine(this.Environment.WebRootPath, "Uploads");
+                vpath = Path.Combine(vpath, "Videos");
+                if (!Directory.Exists(vpath))
+                {
+                    Directory.CreateDirectory(vpath);
+                }
+                List<Video> vlist = courseRepo.getCourseVideos(id);
+                foreach (var v in vlist)
+                {
+                    if (System.IO.File.Exists(Path.Combine(vpath, v.videoName)))
+                    {
+                        // If file found, delete it.
+                        System.IO.File.Delete(Path.Combine(vpath, v.videoName));
+                        // ViewBag.sMessage = "Your Course has been deleted.";
+                    }
+                    else
+                    {
+                        ViewBag.Message = "Video not found";
+                    }
+                }
+
+                bool flag = courseRepo.deleteCourse(id);
+                flag = courseRepo.deleteCourseVideos(id);
+
+                if(flag == true)
+                {
+                    ViewBag.showMyMsg = "Course has been deleted successfully!";
+                    List<Course> li = courseRepo.getSellerCourses(sellerRepo.getSellerId(HttpContext.Request.Cookies["susername"]));
+                    return View("Index",li);
+                }
+                else
+                {
+                    ViewBag.showMyMsg = "There was an error in deleting this course.";
+                    List<Course> li = courseRepo.getSellerCourses(sellerRepo.getSellerId(HttpContext.Request.Cookies["susername"]));
+                    return View("Index",li);
+                }
+            }
+            else
+            {
+                ViewBag.lgout = true;
+                ViewBag.data = "You must have to login first as a seller.";
+                List<Category> li = new List<Category>();
+                //Category c = new Category();
+                li = categoryRepo.getCategoriesList();
+                return View("~/Views/Home/Index.cshtml",li);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult updatecourse(int id)
+        {
+            if(HttpContext.Request.Cookies.ContainsKey("susername") && HttpContext.Request.Cookies.ContainsKey("spassword"))  //checking if cookie exists.
+            {
+                Course c = courseRepo.getCourse(id);
+                return View("updatecourse",c);
+            }
+            else
+            {
+                ViewBag.lgout = true;
+                ViewBag.data = "You must have to login first as a seller.";
+                List<Category> li = new List<Category>();
+                //Category c = new Category();
+                li = categoryRepo.getCategoriesList();
+                return View("~/Views/Home/Index.cshtml",li);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult updatecourse(string courseId, string coursename, string coursedescription, string categorytype, List<IFormFile> postedFiles)
+        {
+            if(HttpContext.Request.Cookies.ContainsKey("susername") && HttpContext.Request.Cookies.ContainsKey("spassword"))  //checking if cookie exists.
+            {
+                int courseid = Int32.Parse(courseId);
+                try
+                {
+                    string wwwPath = this.Environment.WebRootPath;
+                    // string contentPath = this.Environment.ContentRootPath;
+            
+                    string path = Path.Combine(this.Environment.WebRootPath, "Uploads");
+                    path = Path.Combine(path, "Thumbnails");
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+
+                    foreach (IFormFile postedFile in postedFiles)
+                    {
+                        string fileName = Path.GetFileName(postedFile.FileName);
+                        string extension = Path.GetExtension(postedFile.FileName);
+                        
+                        if(extension.ToLower() == ".jpg" || extension.ToLower() == ".jpeg" || extension.ToLower() == ".png" || extension.ToLower() == ".tiff" || extension.ToLower() == ".gif" || extension.ToLower() == ".webp")
+                        {
+                            fileName = courseRepo.getCourseThumbnailName(courseid);
+                            if (System.IO.File.Exists(Path.Combine(path, fileName)))
+                            {
+                                // If file found, delete it.
+                                System.IO.File.Delete(Path.Combine(path, fileName));
+                                // ViewBag.sMessage =  "Your Course has been deleted.";
+                            }
+                            else
+                            {
+                                ViewBag.Message = "Course not found";
+                            }
+                            
+                            Course c = new Course{courseName = coursename, courseDescription = coursedescription, category = categorytype, courseThumbnail=fileName, SellerId=sellerRepo.getSellerId(HttpContext.Request.Cookies["susername"])};
+                            bool flag = courseRepo.updateCourse(courseid, c);
+
+                            using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
+                            {
+                                postedFile.CopyTo(stream);
+                                
+                                if(flag)
+                                {
+                                    ViewBag.sMessage += string.Format("<b>Your course has been updated successfully!</b> <br />");
+                                }
+                                else
+                                {
+                                    ViewBag.Message += string.Format("Course thumbnail has been changed.<br />");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            ViewBag.Message += string.Format("Error: <b>{0}</b> not uploaded because this extension is not supported.<br />", fileName);
+                        }
+                    }
+                }  
+                catch (Exception ex)  
+                {
+                    ViewBag.Message = "ERROR: File size " + ex.Message.ToString();
+                }
                 List<Course> li = courseRepo.getSellerCourses(sellerRepo.getSellerId(HttpContext.Request.Cookies["susername"]));
                 return View("Index",li);
             }
@@ -168,136 +340,184 @@ namespace webapp.Controllers
         [HttpGet]
         public IActionResult addcourse()
         {
-            return View();
+            if(HttpContext.Request.Cookies.ContainsKey("susername") && HttpContext.Request.Cookies.ContainsKey("spassword"))  //checking if cookie exists.
+            {
+                return View();
+            }
+            else
+            {
+                ViewBag.lgout = true;
+                ViewBag.data = "You must have to login first as a seller.";
+                List<Category> li = new List<Category>();
+                //Category c = new Category();
+                li = categoryRepo.getCategoriesList();
+                return View("~/Views/Home/Index.cshtml",li);
+            }
         }
 
         [HttpPost]
         [RequestSizeLimit(209715200)]  //200 MB limit
         public IActionResult addcourse(string coursename, string coursedescription, string categorytype, List<IFormFile> postedFiles)
         {
-            try
+            if(HttpContext.Request.Cookies.ContainsKey("susername") && HttpContext.Request.Cookies.ContainsKey("spassword"))  //checking if cookie exists.
             {
-                string wwwPath = this.Environment.WebRootPath;
-                // string contentPath = this.Environment.ContentRootPath;
-        
-                string path = Path.Combine(this.Environment.WebRootPath, "Uploads");
-                path = Path.Combine(path, "Thumbnails");
-                if (!Directory.Exists(path))
+                try
                 {
-                    Directory.CreateDirectory(path);
-                }
-
-                List<string> uploadedFiles = new List<string>();
-                foreach (IFormFile postedFile in postedFiles)
-                {
-                    string fileName = Path.GetFileName(postedFile.FileName);
-                    string extension = Path.GetExtension(postedFile.FileName);
-                    
-                    if(extension.ToLower() == ".jpg" || extension.ToLower() == ".jpeg" || extension.ToLower() == ".png" || extension.ToLower() == ".tiff" || extension.ToLower() == ".gif" || extension.ToLower() == ".webp")
+                    string wwwPath = this.Environment.WebRootPath;
+                    // string contentPath = this.Environment.ContentRootPath;
+            
+                    string path = Path.Combine(this.Environment.WebRootPath, "Uploads");
+                    path = Path.Combine(path, "Thumbnails");
+                    if (!Directory.Exists(path))
                     {
-                        fileName = "auxiname"+extension;
-                        Course c = new Course{courseName = coursename, courseDescription = coursedescription, category = categorytype, courseThumbnail=fileName, SellerId=sellerRepo.getSellerId(HttpContext.Request.Cookies["susername"])};
-                        int cid = sellerRepo.addCourse(c);
-                        fileName = ""+cid+extension;
-                        Course c2 = new Course{courseName = coursename, courseDescription = coursedescription, category = categorytype, courseThumbnail=fileName, SellerId=sellerRepo.getSellerId(HttpContext.Request.Cookies["susername"])};
-                        cid = sellerRepo.updateThumbnail(c2);
+                        Directory.CreateDirectory(path);
+                    }
 
-                        using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
+                    List<string> uploadedFiles = new List<string>();
+                    foreach (IFormFile postedFile in postedFiles)
+                    {
+                        string fileName = Path.GetFileName(postedFile.FileName);
+                        string extension = Path.GetExtension(postedFile.FileName);
+                        
+                        if(extension.ToLower() == ".jpg" || extension.ToLower() == ".jpeg" || extension.ToLower() == ".png" || extension.ToLower() == ".tiff" || extension.ToLower() == ".gif" || extension.ToLower() == ".webp")
                         {
-                            postedFile.CopyTo(stream);
-                            uploadedFiles.Add(fileName);
-                            
-                            if(cid>0)
+                            fileName = "auxiname"+extension;
+                            Course c = new Course{courseName = coursename, courseDescription = coursedescription, category = categorytype, courseThumbnail=fileName, SellerId=sellerRepo.getSellerId(HttpContext.Request.Cookies["susername"])};
+                            int cid = sellerRepo.addCourse(c);
+                            fileName = ""+cid+extension;
+                            Course c2 = new Course{courseName = coursename, courseDescription = coursedescription, category = categorytype, courseThumbnail=fileName, SellerId=sellerRepo.getSellerId(HttpContext.Request.Cookies["susername"])};
+                            cid = sellerRepo.updateThumbnail(c2);
+
+                            using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
                             {
-                                ViewBag.sMessage += string.Format("<b>Your course has been created successfully!</b> <br />");
-                            }
-                            else
-                            {
-                                ViewBag.Message += string.Format("Error: <b>{0}</b> not uploaded.<br />", fileName);
+                                postedFile.CopyTo(stream);
+                                uploadedFiles.Add(fileName);
+                                
+                                if(cid>0)
+                                {
+                                    ViewBag.sMessage += string.Format("<b>Your course has been created successfully!</b> <br />");
+                                }
+                                else
+                                {
+                                    ViewBag.Message += string.Format("Error: <b>{0}</b> not uploaded.<br />", fileName);
+                                }
                             }
                         }
+                        else
+                        {
+                            ViewBag.Message += string.Format("Error: <b>{0}</b> not uploaded because this extension is not supported.<br />", fileName);
+                        }
                     }
-                    else
-                    {
-                        ViewBag.Message += string.Format("Error: <b>{0}</b> not uploaded because this extension is not supported.<br />", fileName);
-                    }
+                }  
+                catch (Exception ex)  
+                {
+                    ViewBag.Message = "ERROR: File size " + ex.Message.ToString();
                 }
-            }  
-            catch (Exception ex)  
-            {
-                ViewBag.Message = "ERROR: File size " + ex.Message.ToString();
+                return View();
             }
-            return View();
+            else
+            {
+                ViewBag.lgout = true;
+                ViewBag.data = "You must have to login first as a seller.";
+                List<Category> li = new List<Category>();
+                //Category c = new Category();
+                li = categoryRepo.getCategoriesList();
+                return View("~/Views/Home/Index.cshtml",li);
+            }
         }
 
         [HttpGet]
         public IActionResult addvideo(int id)
         {
-            Course c = new Course();
-            c = courseRepo.getCourse(id);
-            return View("addvideo",c);
+            if(HttpContext.Request.Cookies.ContainsKey("susername") && HttpContext.Request.Cookies.ContainsKey("spassword"))  //checking if cookie exists.
+            {
+                Course c = new Course();
+                c = courseRepo.getCourse(id);
+                return View("addvideo",c);
+            }
+            else
+            {
+                ViewBag.lgout = true;
+                ViewBag.data = "You must have to login first as a seller.";
+                List<Category> li = new List<Category>();
+                //Category c = new Category();
+                li = categoryRepo.getCategoriesList();
+                return View("~/Views/Home/Index.cshtml",li);
+            }
         }
 
         [HttpPost]
         [RequestSizeLimit(209715200)]  //200 MB limit
         public IActionResult addvideo(string courseid, string videotitle, List<IFormFile> postedFiles)
         {
-            int courId = Int32.Parse(courseid);
-            try
+            if(HttpContext.Request.Cookies.ContainsKey("susername") && HttpContext.Request.Cookies.ContainsKey("spassword"))  //checking if cookie exists.
             {
-                string wwwPath = this.Environment.WebRootPath;
-                // string contentPath = this.Environment.ContentRootPath;
-        
-                string path = Path.Combine(this.Environment.WebRootPath, "Uploads");
-                path = Path.Combine(path, "Videos");
-                if (!Directory.Exists(path))
+                int courId = Int32.Parse(courseid);
+                try
                 {
-                    Directory.CreateDirectory(path);
-                }
-
-                List<string> uploadedFiles = new List<string>();
-                foreach (IFormFile postedFile in postedFiles)
-                {
-                    string fileName = Path.GetFileName(postedFile.FileName);
-                    string extension = Path.GetExtension(postedFile.FileName);
-                    
-                    if(extension.ToLower() == ".mp4" || extension.ToLower() == ".mov" || extension.ToLower() == ".flv" || extension.ToLower() == ".ts" || extension.ToLower() == ".3gp" || extension.ToLower() == ".m3u8" || extension.ToLower() == ".avi" || extension.ToLower() == ".wmv" || extension.ToLower() == ".webm")
+                    string wwwPath = this.Environment.WebRootPath;
+                    // string contentPath = this.Environment.ContentRootPath;
+            
+                    string path = Path.Combine(this.Environment.WebRootPath, "Uploads");
+                    path = Path.Combine(path, "Videos");
+                    if (!Directory.Exists(path))
                     {
-                        fileName = "auxiname"+extension;
-                        Video v = new Video{videoName = fileName, videoTitle = videotitle, CourseId = courId};
-                        int vid = sellerRepo.addVideo(v);
-                        fileName = ""+vid+extension;
-                        Video v2 = new Video{videoName = fileName, videoTitle = videotitle, CourseId = courId};
-                        vid = sellerRepo.updateVideoName(v2);
+                        Directory.CreateDirectory(path);
+                    }
 
-                        using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
+                    List<string> uploadedFiles = new List<string>();
+                    foreach (IFormFile postedFile in postedFiles)
+                    {
+                        string fileName = Path.GetFileName(postedFile.FileName);
+                        string extension = Path.GetExtension(postedFile.FileName);
+                        
+                        if(extension.ToLower() == ".mp4" || extension.ToLower() == ".mov" || extension.ToLower() == ".flv" || extension.ToLower() == ".ts" || extension.ToLower() == ".3gp" || extension.ToLower() == ".m3u8" || extension.ToLower() == ".avi" || extension.ToLower() == ".wmv" || extension.ToLower() == ".webm")
                         {
-                            postedFile.CopyTo(stream);
-                            uploadedFiles.Add(fileName);
-                            
-                            if(vid>0)
+                            fileName = "auxiname"+extension;
+                            Video v = new Video{videoName = fileName, videoTitle = videotitle, CourseId = courId};
+                            int vid = sellerRepo.addVideo(v);
+                            fileName = ""+vid+extension;
+                            Video v2 = new Video{videoName = fileName, videoTitle = videotitle, CourseId = courId};
+                            vid = sellerRepo.updateVideoName(v2);
+
+                            using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
                             {
-                                ViewBag.sMessage += string.Format("<b>Your video has been added successfully!</b> <br />");
-                            }
-                            else
-                            {
-                                ViewBag.Message += string.Format("Error: <b>{0}</b> not uploaded.<br />", fileName);
+                                postedFile.CopyTo(stream);
+                                uploadedFiles.Add(fileName);
+                                
+                                if(vid>0)
+                                {
+                                    ViewBag.sMessage += string.Format("<b>Your video has been added successfully!</b> <br />");
+                                }
+                                else
+                                {
+                                    ViewBag.Message += string.Format("Error: <b>{0}</b> not uploaded.<br />", fileName);
+                                }
                             }
                         }
+                        else
+                        {
+                            ViewBag.Message += string.Format("Error: <b>{0}</b> not uploaded because this extension is not supported.<br />", fileName);
+                        }
                     }
-                    else
-                    {
-                        ViewBag.Message += string.Format("Error: <b>{0}</b> not uploaded because this extension is not supported.<br />", fileName);
-                    }
+                }  
+                catch (Exception ex)  
+                {
+                    ViewBag.Message = "ERROR: File size " + ex.Message.ToString();
                 }
-            }  
-            catch (Exception ex)  
-            {
-                ViewBag.Message = "ERROR: File size " + ex.Message.ToString();
+                Course c = new Course();
+                c = courseRepo.getCourse(courId);
+                return View("addvideo",c);
             }
-            Course c = new Course();
-            c = courseRepo.getCourse(courId);
-            return View("addvideo",c);
+            else
+            {
+                ViewBag.lgout = true;
+                ViewBag.data = "You must have to login first as a seller.";
+                List<Category> li = new List<Category>();
+                //Category c = new Category();
+                li = categoryRepo.getCategoriesList();
+                return View("~/Views/Home/Index.cshtml",li);
+            }
         }
 
         public IActionResult logout()

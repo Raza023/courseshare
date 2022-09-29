@@ -1,0 +1,34 @@
+@{
+    Layout = "../Shared/_Layout2.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Admin panel login";
+}
+
+<div class="container">
+    <main role="main" class="pb-3">
+        <br>
+        <h1 class="text-center text-info">Course share admin panel</h1>
+        <br>
+        @if(Model!=null)
+        {
+            <div class="alert alert-danger remMarginBottom text-center">
+                <strong>@Model</strong>
+            </div>
+        }
+        <form method="post" action="/Admin/login">
+            <div class="form-group">
+                <label for="username">Admin Username</label>
+                <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Enter username" required />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary">login</button>
+        </form>
+        
+    </main>
+</div>

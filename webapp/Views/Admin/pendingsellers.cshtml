@@ -1,0 +1,35 @@
+@model List<webapp.Models.Seller>
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Pending Sellers";
+}
+
+<div class="container">
+    <main role="main" class="pb-3">
+        <center><h1 class="text-primary">Pending Courses</h1></center>
+        @if(ViewBag.appMessage!=null)
+        {
+            <div class="alert alert-success remMarginBottom text-center">
+                <strong>@ViewBag.appMessage</strong>
+            </div>
+        }
+        <div class="row" id="content">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4">
+                    <div class="card card-block" id="catcard">
+                        <div class="card-block p-3">
+                            <h4 class="card-title">Name: @item.Name</h4>
+                            <p class="card-text">Email: @item.Email</p>
+                            <p class="card-text">Username: @item.Username</p>
+                            <a asp-controller="Admin" asp-action="approveseller" asp-route-id="@item.ID" class="btn btn-primary">Approve Seller</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </main>
+</div>

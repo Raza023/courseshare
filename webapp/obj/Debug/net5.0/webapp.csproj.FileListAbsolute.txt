@@ -239,3 +239,15 @@ D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Seller\addcourse.csh
 D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Seller\addvideo.cshtml.g.cs
 D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Shared\devPartialSellerView.cshtml.g.cs
 D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Course\videodetails.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Seller\updatecourse.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Course\sellersidedetails.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Course\updatevideo.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Admin\Index.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Admin\courseDetails.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Admin\approvedcourses.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Admin\approvedsellers.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Admin\pendingcourses.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Admin\pendingsellers.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Shared\adminPartialView.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Admin\adminhome.cshtml.g.cs
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Home\searchresult.cshtml.g.cs

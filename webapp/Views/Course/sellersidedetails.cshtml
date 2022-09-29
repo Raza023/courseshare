@@ -1,0 +1,47 @@
+@model List<webapp.Models.Video>
+
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container">
+    <main role="main" class="pb-3">
+        <center><h1 class="text-primary">Course details</h1></center>
+        <div>
+
+        </div>
+
+        <div class="row" id="content">
+            @{
+                ViewBag.counter = 1;
+            }
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4">
+                    <div class="card card-block" id="catcard">
+                        <div class="card-block p-3">
+                            <h4 class="card-title">Video: @ViewBag.counter</h4>
+                            <h4 class="card-title">@item.videoTitle</h4>
+                            <hr style="border: 1px dashed blue"/>
+                            <a asp-controller="Course" asp-action="videodetails" asp-route-id="@item.ID" class="btn btn-primary">Watch Video</a>
+                            <a asp-controller="Course" asp-action="deletevideo" asp-route-id="@item.ID" class="btn btn-danger">Delete Video</a>
+                            <br/>
+                            <hr style="border: 1px dashed blue"/>
+                            <a asp-controller="Course" asp-action="updatevideo" asp-route-id="@item.ID" class="btn btn-warning">Update Video</a>
+                            <br/>
+                            <hr style="border: 1px dashed blue"/>
+                        </div>
+                    </div>
+                </div>
+                ViewBag.counter = ViewBag.counter + 1;
+            }
+        </div>
+
+                
+        
+    </main>
+</div>

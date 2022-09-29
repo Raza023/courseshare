@@ -1,0 +1,58 @@
+@model webapp.Models.Video
+
+@{
+    Layout = "../Shared/_Layout2.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Update video";
+}
+
+<div class="container">
+    <main role="main" class="pb-3">
+        <br>
+        <h1 class="text-center text-info">Update Video details</h1>
+        <br>
+        <form enctype="multipart/form-data" method="POST" action="/Course/updatevideo">
+            
+            <div class="form-group">
+                <input type="hidden" name="vid" value="@Model.ID" class="form-control" id="vid" placeholder="video id" readonly />
+            </div>
+            <div class="form-group">
+                <label>Video title</label>
+                <input type="text" name="videotitle" class="form-control" id="videotitle" value="@Model.videoTitle" placeholder="Video title" required />
+            </div>
+            <div class="form-group">
+                <input type="hidden" name="courseId" value="@Model.CourseId" class="form-control" id="courseId" placeholder="course id" readonly />
+            </div>
+
+            <label for="videofile" class="form-label">Video File</label>
+            <input class="form-control form-control-lg" id="videofile" name="postedFiles" type="file" required/>
+
+            <br/>
+
+            <button type="submit" class="btn btn-primary">Update Video</button>
+        </form>
+
+        <br/>
+
+        @if(ViewBag.sMessage != null)
+        {
+            <div class="alert alert-success remMarginBottom text-center">
+                <strong>@Html.Raw(ViewBag.sMessage)</strong>
+            </div>
+        }
+
+        @if(ViewBag.Message != null)
+        {
+            <div class="alert alert-danger remMarginBottom text-center">
+                <strong>@Html.Raw(ViewBag.Message)</strong>
+            </div>
+        }
+
+        <div class="text-center">
+            <a asp-controller="Seller" asp-action="index" class="btn btn-success">Go back to seller portal</a>
+        </div>
+
+    </main>
+</div>

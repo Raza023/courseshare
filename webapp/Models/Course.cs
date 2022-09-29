@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace webapp.Models
 {
-    public class Course
+    public class Course: CourseAuditModel
     {
-        public int ID { get; set; }
+        // public int ID { get; set; }
         public string courseName { get; set; }
         public string courseDescription { get; set; }
         public string courseThumbnail { get; set; }

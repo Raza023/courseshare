@@ -21,6 +21,28 @@
                 <a asp-controller="Seller" asp-action="addcourse" class="btn btn-primary">Add course</a>
             </div>
         </div>
+
+        @if(ViewBag.showMyMsg !=null)
+        {
+            <div class="alert alert-success remMarginBottom text-center">
+                <strong>@ViewBag.showMyMsg</strong>
+            </div>
+        }
+
+        @if(ViewBag.sMessage != null)
+        {
+            <div class="alert alert-success remMarginBottom text-center">
+                <strong>@Html.Raw(ViewBag.sMessage)</strong>
+            </div>
+        }
+
+        @if(ViewBag.Message != null)
+        {
+            <div class="alert alert-danger remMarginBottom text-center">
+                <strong>@Html.Raw(ViewBag.Message)</strong>
+            </div>
+        }
+
         <div class="row" id="content">
         @if(Model!=null)
         {

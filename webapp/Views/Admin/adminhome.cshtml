@@ -1,0 +1,53 @@
+@{
+    Layout = "../Shared/_Layout2.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Admin panel";
+}
+
+<div class="container">
+    <main role="main" class="pb-3">
+        <br>
+        <h1 class="text-center text-info">Course share admin panel</h1>
+        <br>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card" id="catcard" >
+                    <div class="card-body text-center">
+                        <h3>Total courses: @ViewBag.totalCourses </h3>
+                        <h3>Approved: @ViewBag.approvedCourses</h3>
+                        <a asp-controller="Admin" asp-action="approvedcourses" class="btn btn-primary">Show approved Courses</a>
+                        <h3>Pending couses: @ViewBag.pendingCourses</h3>
+                        <a asp-controller="Admin" asp-action="pendingcourses" class="btn btn-primary">Show pending Courses</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card" id="catcard">
+                    <div class="card-body text-center">
+                        <h3>Total sellers: @ViewBag.totalSellers</h3>
+                        <h3>Approved sellers: @ViewBag.approvedSellers</h3>
+                        <a asp-controller="Admin" asp-action="approvedsellers" class="btn btn-primary">Show Approved Sellers</a>
+                        <h3>Pending sellers: @ViewBag.pendingSellers</h3>
+                        <a asp-controller="Admin" asp-action="pendingsellers" class="btn btn-primary">Show Pending Sellers</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card" id="catcard">
+                    <div class="card-body text-center">
+                        <h3>__________________</h3>
+                        <h3>Total users: @ViewBag.totalBuyers</h3>
+                        <h3>__________________</h3>
+                    </div>
+                </div>
+            </div>
+
+              
+        </div>
+    </main>
+</div>

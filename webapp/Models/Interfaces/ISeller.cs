@@ -17,5 +17,7 @@ namespace webapp.Models.Interfaces
         public int getSellerId(string uname);
         public int addVideo(Video v);
         public int updateVideoName(Video v);
+        public bool ApproveSeller(int id);
+        public bool UnApproveSeller(int id);
     }
 }

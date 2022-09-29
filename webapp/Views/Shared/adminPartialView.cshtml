@@ -1,0 +1,16 @@
+
+@model webapp.Models.Course
+
+<div class="col-lg-4">
+    <div class="card card-block" id="catcard">
+        <img class="card-img-top"
+            src="~/Uploads/Thumbnails/@Url.Content(@Model.courseThumbnail)"
+            alt="Card image cap">
+        <div class="card-block p-3">
+            <h4 class="card-title">@Model.courseName</h4>
+            <p class="card-text">@Model.courseDescription</p>
+            <a asp-controller="Course" asp-action="details" asp-route-id="@Model.ID" class="btn btn-primary">Watch Course</a>
+            <a asp-controller="Course" asp-action="details" asp-route-id="@Model.ID" class="btn btn-primary">Watch Course</a>
+        </div>
+    </div>
+</div>
