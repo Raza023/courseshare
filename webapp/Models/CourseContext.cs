@@ -82,6 +82,7 @@ namespace webapp.Models
                 {
                     // System.Console.WriteLine($"{entry.Entity} has state {entry.State}");
                     var referenceEntity = entry.Entity as Video;
+                    SellerRepository sellerRepo = new SellerRepository();
                     switch (entry.State)
                     {
                     case EntityState.Added:

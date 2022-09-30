@@ -9,6 +9,8 @@ using Microsoft.Extensions.Logging;
 using webapp.Models;
 using webapp.Models.Interfaces;
 using Microsoft.AspNetCore.Cors;
+using webapp.Models.ViewModels;
+using AutoMapper;                        //must have to add this line
 
 namespace webapp.Controllers
 {
@@ -19,14 +21,16 @@ namespace webapp.Controllers
         private readonly ICategory categoryRepo;
         private readonly ISeller sellerRepo;
         private readonly ICourse courseRepo;
+        private readonly  IMapper imap;
 
-        public AdminController(ILogger<HomeController> logger, IUsers iu, ICategory ic, ISeller isr, ICourse cr)
+        public AdminController(ILogger<HomeController> logger, IUsers iu, ICategory ic, ISeller isr, ICourse cr, IMapper im)
         {
             _logger = logger;
             userRepo = iu;
             categoryRepo = ic;
             sellerRepo = isr;
             courseRepo = cr;
+            imap = im;
         }
         
         public IActionResult Index()
@@ -257,6 +261,25 @@ namespace webapp.Controllers
                 
         }
         
+        public IActionResult showusers()
+        {
+            if(HttpContext.Request.Cookies.ContainsKey("ausername") && HttpContext.Request.Cookies.ContainsKey("apassword"))  //checking if cookie exists.
+            {
+                List<Users> li = userRepo.GetAllUsers();
+                List<UserViewModel> uvmli = new List<UserViewModel>();
+                foreach(var item in li)
+                {
+                    UserViewModel uvm = imap.Map<UserViewModel>(item);
+                    uvmli.Add(uvm);
+                }
+                // UserViewModel uvm = imap.Map<UserViewModel>(u);
+                return View("showusers",uvmli);
+            }
+            else
+            {
+                return View("Index","You must have to login first.");
+            }
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

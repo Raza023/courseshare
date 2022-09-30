@@ -251,3 +251,9 @@ D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Admin\pendingsellers
 D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Shared\adminPartialView.cshtml.g.cs
 D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Admin\adminhome.cshtml.g.cs
 D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Home\searchresult.cshtml.g.cs
+D:\working\Course Share\webapp\bin\Debug\net5.0\AutoMapper.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+D:\working\Course Share\webapp\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+D:\working\Course Share\webapp\obj\Debug\net5.0\Razor\Views\Admin\showusers.cshtml.g.cs

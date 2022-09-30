@@ -1,0 +1,28 @@
+@model List<webapp.Models.ViewModels.UserViewModel>
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "All Users";
+}
+
+<div class="container">
+    <main role="main" class="pb-3">
+        <center><h1 class="text-primary">Course Share Users</h1></center>
+        <div class="row" id="content">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4">
+                    <div class="card card-block" id="catcard">
+                        <div class="card-block p-3">
+                            <h4 class="card-title">Name: @item.Name</h4>
+                            <p class="card-text">Email: @item.Email</p>
+                            <p class="card-text">Username: @item.Username</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </main>
+</div>

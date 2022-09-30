@@ -26,6 +26,7 @@ namespace webapp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddAutoMapper(typeof(Startup));                 //must add this line.
             services.AddSingleton<IUsers, UsersRepository>();                //add this line.
             services.AddSingleton<ICategory, CategoryRepository>();          //add this line.
             services.AddSingleton<ICourse, CourseRepository>();              //add this line.

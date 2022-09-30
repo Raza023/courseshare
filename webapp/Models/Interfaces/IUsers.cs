@@ -13,5 +13,6 @@ namespace webapp.Models.Interfaces
         public bool getData(Users u);
         public bool checkUsername(Users u);
         public bool SendEmail(string name, string email, string subject, string message);
+        public List<Users> GetAllUsers();
     }
 }

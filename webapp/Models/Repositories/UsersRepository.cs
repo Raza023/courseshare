@@ -193,5 +193,12 @@ namespace webapp.Models.Repositories
                 return false;
             }
         }
+
+        public List<Users> GetAllUsers()
+        {
+            CourseContext db = new CourseContext();
+            List<Users> li = db.Users.Where(p => p.ID >= 1).ToList();
+            return li;
+        }
     }
 }

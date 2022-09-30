@@ -229,7 +229,7 @@ namespace webapp.Controllers
 
         public IActionResult videodetails(int id)     //must use id here.
         {
-            if(HttpContext.Request.Cookies.ContainsKey("username") && HttpContext.Request.Cookies.ContainsKey("password"))  //checking if cookie exists.
+            if((HttpContext.Request.Cookies.ContainsKey("username") && HttpContext.Request.Cookies.ContainsKey("password"))||(HttpContext.Request.Cookies.ContainsKey("susername") && HttpContext.Request.Cookies.ContainsKey("spassword")))  //checking if cookie exists.
             {
                 Video v = courseRepo.getCourseVideo(id);
                 ViewBag.vpath = "~/Uploads/Videos/"+v.videoName;
