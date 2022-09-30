@@ -1,0 +1,4 @@
+Watch this: https://youtu.be/XLzV_gagkZc
+to put the db up and running (using SQL SERVER MANAGEMENT STUDIO)
+
+No need of this as the project is in Code first approach (but just in case).
